@@ -11,31 +11,74 @@ public class MouseLook : MonoBehaviour
     private Vector3 rotate;
     private bool isMousePressed = false;
 
-    // Start is called before the first frame update
-    void Start()
+    private bool isZooming = false;
+
+    private bool hasAdjustedCamera = false;
+    public bool HasAdjustedCamera
     {
-       // Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = true;
+        get { return hasAdjustedCamera; }
     }
 
-    // Update is called once per frame
+    public Vector3 originalPosition;  // 鏡頭的初始位置
+    private Quaternion originalRotation;  // 鏡頭的初始旋轉
+
+    private Vector3 lastAdjustedPosition;  // 上一次調整前的位置
+    private Quaternion lastAdjustedRotation;  // 上一次調整前的旋轉
+
+    void Start()
+    {
+        Cursor.visible = true;
+        originalPosition = Camera.main.transform.position;
+        originalRotation = Camera.main.transform.rotation;
+    }
+
     void Update()
     {
+        if (Camera.main == null)
+        {
+            Debug.LogError("Main Camera not found.");
+            return;
+        }
+
         y = Input.GetAxis("Mouse X");
         x = Input.GetAxis("Mouse Y");
         rotate = new Vector3(x * sensitivityX, y * sensitivityY, 0);
 
-        // Check if mouse button is pressed
         if (Input.GetMouseButtonDown(0))
         {
             isMousePressed = true;
+
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                Transform zoomTarget = hit.transform.Find("ZoomTarget");
+                if (zoomTarget != null && !hasAdjustedCamera)
+                {
+                    // 在調整鏡頭前記錄當前位置和旋轉
+                    lastAdjustedPosition = Camera.main.transform.position;
+                    lastAdjustedRotation = Camera.main.transform.rotation;
+
+                    Camera.main.transform.position = zoomTarget.position;
+                    Camera.main.transform.rotation = zoomTarget.rotation;
+                    hasAdjustedCamera = true;
+                }
+            }
         }
         else if (Input.GetMouseButtonUp(0))
         {
             isMousePressed = false;
+            isZooming = false;
         }
 
-        // Rotate only if mouse button is pressed
+        // 右鍵點擊返回到上一次調整前的位置
+        if (Input.GetMouseButtonDown(1) && hasAdjustedCamera)
+        {
+            Camera.main.transform.position = lastAdjustedPosition;
+            Camera.main.transform.rotation = lastAdjustedRotation;
+            hasAdjustedCamera = false;
+        }
+
         if (isMousePressed)
         {
             transform.eulerAngles = transform.eulerAngles - rotate;

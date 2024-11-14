@@ -5,6 +5,15 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     public Item Item;
+    public bool requiresZoom = false;  
+
+    private MouseLook cameraController;
+
+    void Start()
+    {
+       
+        cameraController = Camera.main.GetComponent<MouseLook>();
+    }
 
     void Pickup()
     {
@@ -14,6 +23,20 @@ public class ItemPickup : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Pickup();
+        if (requiresZoom)
+        {
+            if (cameraController != null && cameraController.HasAdjustedCamera)
+            {
+                Pickup();
+            }
+            else
+            {
+                Debug.Log("no");
+            }
+        }
+        else
+        {
+            Pickup();
+        }
     }
 }

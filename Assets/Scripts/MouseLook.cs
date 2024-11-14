@@ -79,7 +79,7 @@ public class MouseLook : MonoBehaviour
             hasAdjustedCamera = false;
         }
 
-        if (isMousePressed)
+        if (isMousePressed && !hasAdjustedCamera)
         {
             transform.eulerAngles = transform.eulerAngles - rotate;
         }

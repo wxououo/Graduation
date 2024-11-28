@@ -326,7 +326,7 @@ MonoBehaviour:
   photoDisplayArea: {fileID: 2096789988}
   photoFrame: {fileID: 784534086}
   cameraObject: {fileID: 49651116}
-  inventoryManager: {fileID: 1011599650}
+  inventoryManager: {fileID: 0}
   photoWidth: 800
   photoHeight: 600
 --- !u!114 &49651120
@@ -1808,53 +1808,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 968869741}
   m_CullTransparentMesh: 1
---- !u!1 &1011599649
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1011599651}
-  - component: {fileID: 1011599650}
-  m_Layer: 0
-  m_Name: InventoryManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1011599650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011599649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc61bf896dff7de478f444c04019e061, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Items: []
-  ItemContent: {fileID: 70299636}
-  InventoryItem: {fileID: 1013848832203138935, guid: ba4fd4584618a404aa4fa5f5929da60c, type: 3}
---- !u!4 &1011599651
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011599649}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1023784517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1974,7 +1927,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1011599650}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
         m_MethodName: ListItems
         m_Mode: 1
@@ -3169,6 +3122,5 @@ SceneRoots:
   - {fileID: 1100834850}
   - {fileID: 590282777}
   - {fileID: 1036833324}
-  - {fileID: 1011599651}
   - {fileID: 216659028}
   - {fileID: 63573831}

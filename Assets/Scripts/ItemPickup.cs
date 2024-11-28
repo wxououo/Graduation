@@ -5,13 +5,13 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     public Item Item;
-    public bool requiresZoom = false;  
+    public bool requiresZoom = false;
 
     private MouseLook cameraController;
 
     void Start()
     {
-       
+
         cameraController = Camera.main.GetComponent<MouseLook>();
     }
 

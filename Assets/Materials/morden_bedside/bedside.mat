@@ -120,7 +120,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightDir: {r: 1, g: 5.7, b: -0.94, a: 0}
+    - _LightDir: {r: -17.37, g: 20.07, b: -0.94, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _darkcolor: {r: 0.6377357, g: 0.57639956, b: 0.5523032, a: 0}
     - _lightcolor: {r: 1, g: 1, b: 1, a: 0}

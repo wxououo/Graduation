@@ -11,7 +11,6 @@ public class ItemPickup : MonoBehaviour
 
     void Start()
     {
-
         cameraController = Camera.main.GetComponent<MouseLook>();
     }
 

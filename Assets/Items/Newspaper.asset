@@ -15,4 +15,6 @@ MonoBehaviour:
   id: 1
   itemName: Newspaper
   value: 0
-  icon: {fileID: 21300000, guid: 37fb0f70e488ff14c9739f9890c6ca76, type: 3}
+  icon: {fileID: 21300000, guid: 4128e991b81bf6e4fb5e751ba8dee988, type: 3}
+  prefab: {fileID: 0}
+  isPuzzlePiece: 0
